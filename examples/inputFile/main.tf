@@ -9,9 +9,11 @@ locals {
  In depth explanation of 'for' expression can be found in the Readme
 */
 
+
 module "custom_policy" {
   for_each = { for f in local.raw_data : f.name => f }
-  source   = "../../"
+  source  = "andrewCluey/policy-definition/azurerm//examples/inputFile"
+  version = "0.1.0"
 
   policy_name       = each.key
   policy_mode       = each.value.properties.mode
