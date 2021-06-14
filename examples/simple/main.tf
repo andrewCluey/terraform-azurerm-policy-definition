@@ -1,5 +1,7 @@
+
 module "policy" {
-  source = "../../"
+  source  = "andrewCluey/policy-definition/azurerm//examples/inputFile"
+  version = "0.1.0"
 
   policy_name      = "remoteTest"
   policy_mode      = "Indexed"

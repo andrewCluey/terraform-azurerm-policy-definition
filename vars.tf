@@ -1,15 +1,23 @@
-/*
-variable "policy_definition" {
-  type = object({
-    displayName = string
-    metadata    = string
-    parameters  = string
-    policyRule  = string
-  })
-  description = ""
+variable "metadata" {
+  type        = string
+  description = "description"
 }
-*/
 
+variable "parameters" {
+  type        = string
+  description = "description"
+}
+
+variable "policy_rule" {
+  type        = string
+  description = "description"
+  default     = "type"
+}
+
+variable "display_name" {
+  type        = string
+  description = "description"
+}
 
 variable "management_group" {
   type        = string
@@ -17,12 +25,10 @@ variable "management_group" {
   default     = null
 }
 
-
 variable "policy_name" {
   type        = string
   description = "description"
 }
-
 
 variable "policy_mode" {
   type        = string

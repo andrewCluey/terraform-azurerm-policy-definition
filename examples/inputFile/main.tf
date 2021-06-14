@@ -12,16 +12,16 @@ locals {
 
 module "custom_policy" {
   for_each = { for f in local.raw_data : f.name => f }
-  source  = "andrewCluey/policy-definition/azurerm//examples/inputFile"
-  version = "0.1.0"
+  source   = "andrewCluey/policy-definition/azurerm"
+  version  = "0.1.1"
 
-  policy_name       = each.key
-  policy_mode       = each.value.properties.mode
-  display_name      = each.value.properties.displayName
-  management_group  = "im"
-  metadata          = jsonencode("${each.value.properties.metadata}") #format("<<METADATA \n %s \n METADATA", each.value.properties.metadata)
-  parameters        = jsonencode("${each.value.properties.parameters}") #format("<<PARAMETERS \n %s \n PARAMETERS", each.value.properties.parameters)
-  policy_rule       = jsonencode("${each.value.properties.policyRule}") #format("<<POLICYRULE \n %s \n POLICYRULE", each.value.properties.policyRule)
+  policy_name      = each.key
+  policy_mode      = each.value.properties.mode
+  display_name     = each.value.properties.displayName
+  management_group = "im"
+  metadata         = jsonencode("${each.value.properties.metadata}")   #format("<<METADATA \n %s \n METADATA", each.value.properties.metadata)
+  parameters       = jsonencode("${each.value.properties.parameters}") #format("<<PARAMETERS \n %s \n PARAMETERS", each.value.properties.parameters)
+  policy_rule      = jsonencode("${each.value.properties.policyRule}") #format("<<POLICYRULE \n %s \n POLICYRULE", each.value.properties.policyRule)
 }
 
 
